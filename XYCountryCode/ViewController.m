@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "XYCountryCodeViewController.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+}
+- (IBAction)show:(id)sender {
+    XYCountryCodeViewController *vc = [[XYCountryCodeViewController alloc] init];
+    [self presentViewController:vc animated:YES completion:^{
+        
+    }];
 }
 
 

@@ -73,7 +73,7 @@
   "code": 247,
   "tw": "阿森松",
   "en": "Ascension",
-  "locale": " ",
+  "locale": "SH",
   "zh": "阿森松"
   },
   {
@@ -234,7 +234,7 @@
   "code": 1345,
   "tw": "開曼群島",
   "en": "Cayman Is.",
-  "locale": " ",
+  "locale": "KY",
   "zh": "开曼群岛"
   },
   {
@@ -563,7 +563,7 @@
   "code": 225,
   "tw": "科特迪瓦",
   "en": "Ivory Coast",
-  "locale": " ",
+  "locale": "CI",
   "zh": "科特迪瓦"
   },
   {
@@ -745,14 +745,14 @@
   "code": 1670,
   "tw": "馬里亞那群島",
   "en": "Mariana Is",
-  "locale": " ",
+  "locale": "MP",
   "zh": "马里亚那群岛"
   },
   {
   "code": 596,
   "tw": "馬提尼克島",
   "en": "Martinique",
-  "locale": " ",
+  "locale": "MQ",
   "zh": "马提尼克"
   },
   {
@@ -836,7 +836,7 @@
   "code": 599,
   "tw": "荷屬安地列斯",
   "en": "Netheriands Antilles",
-  "locale": " ",
+  "locale": "AN",
   "zh": "荷属安的列斯"
   },
   {
@@ -976,7 +976,7 @@
   "code": 262,
   "tw": "留尼旺",
   "en": "Reunion",
-  "locale": " ",
+  "locale": "RE",
   "zh": "留尼旺"
   },
   {
@@ -1011,14 +1011,14 @@
   "code": 684,
   "tw": "東薩摩亞(美)",
   "en": "Samoa Eastern",
-  "locale": " ",
+  "locale": "AS",
   "zh": "东萨摩亚(美)"
   },
   {
   "code": 685,
   "tw": "西薩摩亞",
   "en": "Samoa Western",
-  "locale": " ",
+  "locale": "WS",
   "zh": "西萨摩亚"
   },
   {
@@ -1333,7 +1333,7 @@
   "code": 243,
   "tw": "扎伊爾",
   "en": "Zaire",
-  "locale": "ZR",
+  "locale": "CD",
   "zh": "扎伊尔"
   },
   {

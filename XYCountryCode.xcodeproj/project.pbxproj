@@ -18,6 +18,9 @@
 		1756FD9A212564850020130B /* XYCountryCodeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1756FD99212564850020130B /* XYCountryCodeUITests.m */; };
 		1756FDAA212564C40020130B /* XYCountryCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1756FDA9212564C30020130B /* XYCountryCode.bundle */; };
 		1756FDAD2125650A0020130B /* XYCountryCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1756FDAC2125650A0020130B /* XYCountryCodeViewController.m */; };
+		17FA7CCE21256A8C00B60216 /* XYCountryCodeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FA7CCD21256A8C00B60216 /* XYCountryCodeUtils.m */; };
+		17FA7CD121256A9F00B60216 /* XYCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FA7CD021256A9F00B60216 /* XYCountry.m */; };
+		17FA7CD42125722500B60216 /* XYCountryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FA7CD32125722500B60216 /* XYCountryManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,12 @@
 		1756FDA9212564C30020130B /* XYCountryCode.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XYCountryCode.bundle; sourceTree = "<group>"; };
 		1756FDAB2125650A0020130B /* XYCountryCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYCountryCodeViewController.h; sourceTree = "<group>"; };
 		1756FDAC2125650A0020130B /* XYCountryCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYCountryCodeViewController.m; sourceTree = "<group>"; };
+		17FA7CCC21256A8C00B60216 /* XYCountryCodeUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYCountryCodeUtils.h; sourceTree = "<group>"; };
+		17FA7CCD21256A8C00B60216 /* XYCountryCodeUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYCountryCodeUtils.m; sourceTree = "<group>"; };
+		17FA7CCF21256A9F00B60216 /* XYCountry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYCountry.h; sourceTree = "<group>"; };
+		17FA7CD021256A9F00B60216 /* XYCountry.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYCountry.m; sourceTree = "<group>"; };
+		17FA7CD22125722500B60216 /* XYCountryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYCountryManager.h; sourceTree = "<group>"; };
+		17FA7CD32125722500B60216 /* XYCountryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYCountryManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +156,12 @@
 				1756FDA8212564B60020130B /* res */,
 				1756FDAB2125650A0020130B /* XYCountryCodeViewController.h */,
 				1756FDAC2125650A0020130B /* XYCountryCodeViewController.m */,
+				17FA7CCC21256A8C00B60216 /* XYCountryCodeUtils.h */,
+				17FA7CCD21256A8C00B60216 /* XYCountryCodeUtils.m */,
+				17FA7CCF21256A9F00B60216 /* XYCountry.h */,
+				17FA7CD021256A9F00B60216 /* XYCountry.m */,
+				17FA7CD22125722500B60216 /* XYCountryManager.h */,
+				17FA7CD32125722500B60216 /* XYCountryManager.m */,
 			);
 			path = XYCountryCode;
 			sourceTree = "<group>";
@@ -292,7 +307,10 @@
 			files = (
 				1756FD77212564830020130B /* ViewController.m in Sources */,
 				1756FD7D212564830020130B /* XYCountryCode.xcdatamodeld in Sources */,
+				17FA7CD121256A9F00B60216 /* XYCountry.m in Sources */,
+				17FA7CCE21256A8C00B60216 /* XYCountryCodeUtils.m in Sources */,
 				1756FD85212564850020130B /* main.m in Sources */,
+				17FA7CD42125722500B60216 /* XYCountryManager.m in Sources */,
 				1756FD74212564830020130B /* AppDelegate.m in Sources */,
 				1756FDAD2125650A0020130B /* XYCountryCodeViewController.m in Sources */,
 			);
@@ -463,7 +481,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = PS3YZT8DSP;
 				INFOPLIST_FILE = XYCountryCode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -471,6 +490,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xllyll.ios.XYCountryCode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "21b49d58-99cd-4a14-b25e-9c443a5272b9";
+				PROVISIONING_PROFILE_SPECIFIER = "XC-DEV";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -479,7 +500,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = PS3YZT8DSP;
 				INFOPLIST_FILE = XYCountryCode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -487,6 +510,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xllyll.ios.XYCountryCode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6dbaf6e1-9a53-4ef7-9cfd-ac9f5a32b9d9";
+				PROVISIONING_PROFILE_SPECIFIER = "XC-HOC";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
