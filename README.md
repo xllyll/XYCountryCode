@@ -1,3 +1,6 @@
+![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg) ![](https://img.shields.io/cocoapods/v/XYCountryCode.svg?style=flat)
+![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)
+
 # XYCountryCode
 
 国家代码选择器，支持中英文、国旗
