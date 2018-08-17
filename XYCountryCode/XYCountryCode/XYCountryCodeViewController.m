@@ -35,6 +35,11 @@
     // Do any additional setup after loading the view.
     [self setup];
 }
+- (void)dismiss{
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
 
 - (void)setup{
     self.data = [[XYCountryCodeUtils shareUtils] countryArray];
@@ -68,11 +73,10 @@
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 }
 - (void)leftBarButtonItemSelect:(UIBarButtonItem*)sender{
-    [self.navigationController dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+    [self dismiss];
 }
 - (void)rightBarButtonItemSelect:(UIBarButtonItem*)sender{
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -160,6 +164,26 @@
         m = self.searchArray[section];
     }
     return m.title;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    XYCountryManager *m ;
+    
+    if (self.searchBar.text.length==0) {
+        m = self.dataArray[indexPath.section];
+    }else{
+        m = self.searchArray[indexPath.section];
+    }
+    XYCountry *c = m.countrys[indexPath.row];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(countryCodeViewController:chooseCode:)]) {
+        [self.delegate countryCodeViewController:self chooseCode:c.code];
+    }
+    if (_chooseCodeRespose) {
+        _chooseCodeRespose(c.code);
+    }
+    
+    [self dismiss];
 }
 #pragma mark serachBarDeleagte
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{

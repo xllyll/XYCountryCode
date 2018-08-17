@@ -18,19 +18,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Fe-ae-ptX">
-                                <rect key="frame" x="61" y="100" width="72" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Fe-ae-ptX">
+                                <rect key="frame" x="50" y="121" width="275" height="48"/>
                                 <color key="backgroundColor" red="0.20392156859999999" green="0.72941176470000002" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Ysm-ly-OB7"/>
+                                </constraints>
                                 <state key="normal" title="show"/>
                                 <connections>
                                     <action selector="show:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G8Y-g0-IvS"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="显示代码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKz-YW-PTP">
+                                <rect key="frame" x="153" y="70" width="69.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="VKz-YW-PTP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="9G7-xx-Eyn"/>
+                            <constraint firstItem="VKz-YW-PTP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9hM-mu-lwv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4Fe-ae-ptX" secondAttribute="trailing" constant="50" id="f0E-65-fyW"/>
+                            <constraint firstItem="4Fe-ae-ptX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="k7v-gh-N8M"/>
+                            <constraint firstItem="4Fe-ae-ptX" firstAttribute="top" secondItem="VKz-YW-PTP" secondAttribute="bottom" constant="30" id="u7b-Ij-9wF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="VKz-YW-PTP" id="bEI-2M-hOS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

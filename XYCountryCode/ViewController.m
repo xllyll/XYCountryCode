@@ -11,6 +11,8 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *label;
+
 @end
 
 @implementation ViewController
@@ -23,6 +25,9 @@
 - (IBAction)show:(id)sender {
     XYCountryCodeViewController *vc = [[XYCountryCodeViewController alloc] init];
     [vc showViewController:self showType:XYCountryCodeShowTypeNone];
+    [vc setChooseCodeRespose:^(NSString *code) {
+        self.label.text = code;
+    }];
 }
 
 
