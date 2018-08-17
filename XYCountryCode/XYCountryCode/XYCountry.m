@@ -31,7 +31,7 @@
         //en_US zh_CN zh_CN
         if([locale.localeIdentifier isEqualToString:@"zh-TW"] || [locale.localeIdentifier isEqualToString:@"zh-HK"]){
             _name = _info[@"tw"];
-        }else if([locale.localeIdentifier isEqualToString:@"zh-CH"]){
+        }else if([locale.localeIdentifier isEqualToString:@"zh-CH"] || [locale.localeIdentifier isEqualToString:@"en_CN"]){
             _name = _info[@"zh"];
         }else{
             _name = _info[@"en"];

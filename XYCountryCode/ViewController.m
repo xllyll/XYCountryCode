@@ -22,9 +22,7 @@
 }
 - (IBAction)show:(id)sender {
     XYCountryCodeViewController *vc = [[XYCountryCodeViewController alloc] init];
-    [self presentViewController:vc animated:YES completion:^{
-        
-    }];
+    [vc showViewController:self showType:XYCountryCodeShowTypeNone];
 }
 
 

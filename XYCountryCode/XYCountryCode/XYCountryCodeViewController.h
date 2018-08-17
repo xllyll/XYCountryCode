@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum XYCountryCodeShowType {
+    XYCountryCodeShowTypeNone  = 0,
+    XYCountryCodeShowTypePicker
+} XYCountryCodeShowType;
+
 @interface XYCountryCodeViewController : UIViewController
+
+-(void)showViewController:(UIViewController *)vc showType:(XYCountryCodeShowType)aType;
 
 @end

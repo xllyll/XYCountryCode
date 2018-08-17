@@ -10,7 +10,6 @@
 
 @interface XYCountryCodeUtils ()
 
-@property (strong , nonatomic) NSMutableArray *countryArray;
 
 @end
 
@@ -112,5 +111,42 @@ static XYCountryCodeUtils* _instance = nil;
     
     return [pinYin substringToIndex:1];
     
+}
+-(NSArray<XYCountryManager *> *)buildManagers:(NSArray<XYCountry *> *)countrys showType:(XYCountryShowType)aType{
+    NSMutableDictionary *listdic = [NSMutableDictionary dictionary];
+    if (countrys && countrys.count>0) {
+        for (XYCountry *country in countrys) {
+            NSString *firstZ = [self firstCharactorWithString:country.en];
+            if (aType == XYCountryShowTypeZH) {
+                firstZ = [self firstCharactorWithString:country.zh];
+            }
+            if (aType == XYCountryShowTypeTW) {
+                firstZ = [self firstCharactorWithString:country.tw];
+            }
+            NSMutableArray *list = listdic[firstZ];
+            if (!list) {
+                list = [NSMutableArray array];
+                [listdic setObject:list forKey:firstZ];
+            }
+            [list addObject:country];
+        }
+    }
+    NSMutableArray *list = [NSMutableArray array];
+    for (NSString *key in listdic.allKeys) {
+        NSArray *l = listdic[key];
+        XYCountryManager *m = [[XYCountryManager alloc] init];
+        m.title = key;
+        m.countrys = l;
+        [list addObject:m];
+    }
+    
+    NSArray *resultArray = [list sortedArrayUsingComparator:^NSComparisonResult(XYCountryManager *obj1, XYCountryManager *obj2) {
+        
+        return [obj1.title compare:obj2.title];
+        // 这里不仅可以利用字符串排序，也可以自定义HXPerson对象的排序方法compare:，自己接利用对象进行排序。
+        
+    }];
+    
+    return resultArray;
 }
 @end

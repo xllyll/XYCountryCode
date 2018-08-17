@@ -16,5 +16,10 @@
 
 +(XYCountryCodeUtils*)shareUtils;
 
+@property (strong , nonatomic) NSMutableArray *countryArray;
+
 -(NSArray<XYCountryManager*>*)managers;
+
+-(NSArray<XYCountryManager *> *)buildManagers:(NSArray<XYCountry *> *)countrys showType:(XYCountryShowType)aType;
+
 @end
