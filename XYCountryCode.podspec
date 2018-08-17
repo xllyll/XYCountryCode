@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "XYCountryCode"
-  s.version      = "1.0.1"
-  s.summary      = "A short description of XYCountryCode."
+  s.version      = "1.0.2"
+  s.summary      = "XYCountryCode 国家代码,国际区号,国旗"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?

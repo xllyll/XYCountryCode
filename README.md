@@ -5,7 +5,22 @@
 
 国家代码选择器，支持中英文、国旗
 
+
+1.导入XWCountryCode类
+
+pod
+
+pod 'XYCountryCode'
+
 三行代码集成国家区号选择功能
+
+```objective-c
+XYCountryCodeViewController *vc = [[XYCountryCodeViewController alloc] init];
+[vc showViewController:self showType:XYCountryCodeShowTypeNone];
+[vc setChooseCodeRespose:^(NSString *code) {
+self->zone = code;
+}];
+```
 
 ##-----------------------------------------
 
