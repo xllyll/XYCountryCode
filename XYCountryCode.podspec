@@ -17,17 +17,19 @@ Pod::Spec.new do |s|
 
   s.name         = "XYCountryCode"
   s.version      = "1.0.1"
-  s.summary      = "XYCountryCode 国家区号选择 ------------------------"
+  s.summary      = "A short description of XYCountryCode."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  s.description  = "国家区号选择 中英文 国旗 国家代码,国际区号,注册登录选择国家,界面传值采用代理delegate和block两种方式,自由选择"
+s.description  = <<-DESC
+                    国家代码,国际区号,国旗, 注册登录选择国家,界面传值采用代理delegate和block两种方式,自由选择
+                    DESC
 
   s.homepage     = "https://github.com/xllyll/XYCountryCode"
-  # s.screenshots  = "https://github.com/xllyll/XYCountryCode.gif", "www.example.com/screenshots_2.gif"
+  # s.screenshots  = "https://github.com/xllyll/XYCountryCode.gif", "https://github.com/xllyll/XYCountryCode.gif"
 
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -37,9 +39,9 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  #s.license      = "MIT (example)"
-  #s.license      = { :type => "MIT", :file => "LICENSE" }
-  s.license       = "Copyright (c) 2018年 杨卢银. All rights reserved."
+  # s.license      = "MIT (example)"
+  s.license      = { :type => "MIT", :file => "LICENSE" }
+
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -62,7 +64,7 @@ Pod::Spec.new do |s|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  # s.platform     = :ios
+  s.platform     = :ios
   s.platform     = :ios, "8.0"
 
   #  When using multiple platforms
@@ -89,10 +91,10 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "XYCountryCode", "XYCountryCode/XYCountryCode/**/*.{h,m}"
-  #s.exclude_files = "XYCountryCode/XYCountryCode/res"
+  s.source_files  = "XYCountryCode/XYCountryCode/*.{h,m}"
+  # s.exclude_files = "XYCountryCode/**/*.{h,m}"
 
-  # s.public_header_files = "XYCountryCode/XYCountryCode/**/*.h"
+  # s.public_header_files = "Classes/**/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -104,7 +106,9 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  s.resources = "XYCountryCode/XYCountryCode/res/*.{png,bundle}"
+  # s.resources = "Resources/*.png"
+
+  s.resources   = "XYCountryCode/XYCountryCode/res/*.{png,bundle}"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
@@ -128,7 +132,7 @@ Pod::Spec.new do |s|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  s.requires_arc = true
+  # s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
