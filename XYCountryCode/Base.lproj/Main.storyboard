@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,15 +15,19 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Iei-PA-DLC"/>
+                        <viewControllerLayoutGuide type="bottom" id="yoz-ve-aam"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Fe-ae-ptX">
-                                <rect key="frame" x="50" y="121" width="275" height="48"/>
+                                <rect key="frame" x="46" y="121" width="283" height="48"/>
                                 <color key="backgroundColor" red="0.20392156859999999" green="0.72941176470000002" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="Ysm-ly-OB7"/>
+                                    <constraint firstAttribute="height" constant="48" id="9Ac-z9-adL"/>
                                 </constraints>
                                 <state key="normal" title="show"/>
                                 <connections>
@@ -38,13 +43,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="VKz-YW-PTP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="9G7-xx-Eyn"/>
+                            <constraint firstItem="VKz-YW-PTP" firstAttribute="top" secondItem="Iei-PA-DLC" secondAttribute="bottom" constant="50" id="9G7-xx-Eyn"/>
                             <constraint firstItem="VKz-YW-PTP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9hM-mu-lwv"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4Fe-ae-ptX" secondAttribute="trailing" constant="50" id="f0E-65-fyW"/>
-                            <constraint firstItem="4Fe-ae-ptX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="k7v-gh-N8M"/>
-                            <constraint firstItem="4Fe-ae-ptX" firstAttribute="top" secondItem="VKz-YW-PTP" secondAttribute="bottom" constant="30" id="u7b-Ij-9wF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4Fe-ae-ptX" secondAttribute="trailing" constant="30" id="JDd-YA-2Kq"/>
+                            <constraint firstItem="4Fe-ae-ptX" firstAttribute="top" secondItem="Iei-PA-DLC" secondAttribute="bottom" constant="101" id="Oxg-O9-j3K"/>
+                            <constraint firstItem="4Fe-ae-ptX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="a6M-f2-fdJ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="label" destination="VKz-YW-PTP" id="bEI-2M-hOS"/>
@@ -52,7 +56,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="127.28635682158921"/>
+            <point key="canvasLocation" x="139.5" y="126.5"/>
         </scene>
     </scenes>
 </document>
