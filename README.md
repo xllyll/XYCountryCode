@@ -1,7 +1,4 @@
-![image](http://paxdlrdk7.bkt.clouddn.com/name3.png)
-
-
-![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg) ![](https://img.shields.io/cocoapods/v/YNPageViewController.svg?style=flat)
+![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg) ![](https://img.shields.io/cocoapods/v/XYCountryCode.svg?style=flat)
 ![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)
 
 # XYCountryCode
