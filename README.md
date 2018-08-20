@@ -13,12 +13,20 @@ pod
 pod 'XYCountryCode'
 
 三行代码集成国家区号选择功能
-
+类型
 ```objective-c
-XYCountryCodeViewController *vc = [[XYCountryCodeViewController alloc] init];
-[vc showViewController:self showType:XYCountryCodeShowTypeNone];
+
+XYCountryCodeShowTypeNone //默认为列表
+XYCountryCodeShowTypePicker //picker模式
+
+```
+
+代码如下：
+```objective-c
+XYCountryCodeViewController *vc = [[XYCountryCodeViewController alloc] initWithShowType:XYCountryCodeShowTypePicker];
+[vc showViewController:self];
 [vc setChooseCodeRespose:^(NSString *code) {
-self->zone = code;
+    self.label.text = code;
 }];
 ```
 
@@ -27,3 +35,6 @@ self->zone = code;
 ![image](https://github.com/xllyll/XYCountryCode/blob/master/gif01.gif?raw=true)
 ![image](https://github.com/xllyll/XYCountryCode/blob/master/image2.png?raw=true)
 ![image](https://github.com/xllyll/XYCountryCode/blob/master/image3.png?raw=true)
+![image](https://github.com/xllyll/XYCountryCode/blob/master/image4.png?raw=true)
+
+------------------by xllyll----------------
