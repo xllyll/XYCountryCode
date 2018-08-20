@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "XYCountryCode"
-  s.version      = "1.0.2"
-  s.summary      = "XYCountryCode 国家代码,国际区号,国旗"
+  s.version      = "1.0.3"
+  s.summary      = "XYCountryCode 国家代码,国际区号,国旗,显示方式：列表，picker"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
 s.description  = <<-DESC
-                    国家代码,国际区号,国旗, 注册登录选择国家,界面传值采用代理delegate和block两种方式,自由选择
+                    国家代码,国际区号,国旗, 注册登录选择国家,显示方式：列表，picker,界面传值采用代理delegate和block两种方式,自由选择
                     DESC
 
   s.homepage     = "https://github.com/xllyll/XYCountryCode"
