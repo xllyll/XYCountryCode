@@ -18,13 +18,17 @@
 @end
 
 typedef enum XYCountryCodeShowType {
-    XYCountryCodeShowTypeNone  = 0,
-    XYCountryCodeShowTypePicker
+    XYCountryCodeShowTypeNone  = 0,/*! 列表模式 */
+    XYCountryCodeShowTypePicker /*! picker模式 */
 } XYCountryCodeShowType;
 
 @interface XYCountryCodeViewController : UIViewController
 
--(void)showViewController:(UIViewController *)vc showType:(XYCountryCodeShowType)aType;
+-(instancetype)initWithShowType:(XYCountryCodeShowType)aType;
+
+@property (assign ,nonatomic)XYCountryCodeShowType type;
+
+-(void)showViewController:(UIViewController *)vc;
 
 @property (weak , nonatomic) id<XYCountryCodeViewControllerDelegate>delegate;
 

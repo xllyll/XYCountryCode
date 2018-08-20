@@ -23,8 +23,8 @@
     
 }
 - (IBAction)show:(id)sender {
-    XYCountryCodeViewController *vc = [[XYCountryCodeViewController alloc] init];
-    [vc showViewController:self showType:XYCountryCodeShowTypeNone];
+    XYCountryCodeViewController *vc = [[XYCountryCodeViewController alloc] initWithShowType:XYCountryCodeShowTypePicker];
+    [vc showViewController:self];
     [vc setChooseCodeRespose:^(NSString *code) {
         self.label.text = code;
     }];

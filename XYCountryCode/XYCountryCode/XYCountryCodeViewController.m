@@ -9,53 +9,117 @@
 #import "XYCountryCodeViewController.h"
 #import "XYCountryCodeUtils.h"
 
-@interface XYCountryCodeViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
-
+@interface XYCountryCodeViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
+{
+    NSInteger pickerSelectIndex;
+}
 @property (strong , nonatomic)UITableView *tableView;
+
 @property (strong , nonatomic)NSArray *dataArray;
 
 @property (strong , nonatomic)UISearchBar *searchBar;
 
 @property (strong , nonatomic)NSArray *data;
 @property (strong , nonatomic)NSArray *searchArray;
+
+
+@property (strong , nonatomic)UIPickerView *pickerView;
+@property (strong , nonatomic)UIView *pickerBGView;
+@property (strong , nonatomic)UIImageView *pickerBGImageView;
+@property (strong , nonatomic)UIButton *pickerBGCloseBT;
+@property (strong , nonatomic)UIButton *pickerBGDemoBT;
+
 @end
 
 @implementation XYCountryCodeViewController
 
-
--(void)showViewController:(UIViewController *)vc showType:(XYCountryCodeShowType)aType{
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:self];
-    [vc presentViewController:nav animated:YES completion:^{
+-(instancetype)initWithShowType:(XYCountryCodeShowType)aType{
+    self = [super init];
+    if (self) {
+        self.type = aType;
+    }
+    return self;
+}
+-(void)showViewController:(UIViewController *)vc{
+    
+    if (_type==XYCountryCodeShowTypePicker) {
+        //_showViewController= viewcontroller;
         
-    }];
+        self.view.backgroundColor = [UIColor clearColor];
+        self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        [vc presentViewController:self animated:NO completion:^{
+            
+        }];
+    }else{
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:self];
+        [vc presentViewController:nav animated:YES completion:^{
+            
+        }];
+    }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setup];
+    if (_type==XYCountryCodeShowTypePicker) {
+        CGRect rect = self.pickerBGView.frame;
+        rect.origin.y = [UIScreen mainScreen].bounds.size.height;
+        self.pickerBGView.frame = rect;
+        
+        self.pickerBGImageView.alpha = 0.0;
+        pickerSelectIndex= 0;
+    }
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if (_type == XYCountryCodeShowTypePicker) {
+        [UIView animateWithDuration:0.3 animations:^{
+            CGRect rect = self.pickerBGView.frame;
+            rect.origin.y = [UIScreen mainScreen].bounds.size.height - rect.size.height;
+            self.pickerBGView.frame = rect;
+            self.pickerBGImageView.alpha = 0.35;
+        } completion:^(BOOL finished) {
+            [self.pickerView reloadAllComponents];
+        }];
+    }
 }
 - (void)dismiss{
-    [self.navigationController dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+    if(_type == XYCountryCodeShowTypeNone){
+        [self.navigationController dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    }else{
+        self.pickerBGImageView.alpha = 0.0;
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    }
 }
-
-- (void)setup{
+- (void)buildData{
     self.data = [[XYCountryCodeUtils shareUtils] countryArray];
-    
     self.dataArray = [[XYCountryCodeUtils shareUtils] managers];
+}
+- (void)setup{
+    [self buildData];
     
-    [self.view addSubview:self.tableView];
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
+    if(_type == XYCountryCodeShowTypeNone){
+        [self.view addSubview:self.tableView];
+        self.tableView.dataSource = self;
+        self.tableView.delegate = self;
+        
+        CGRect rect = [UIScreen mainScreen].bounds;
+        UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, rect.size.width, 56)];
+        searchBar.placeholder = @"输入关键字";
+        searchBar.delegate = self;
+        self.tableView.tableHeaderView = searchBar;
+        _searchBar = searchBar;
+    }else if (_type == XYCountryCodeShowTypePicker){
+        [self.view addSubview:self.pickerBGView];
+        self.pickerView.delegate = self;
+        self.pickerView.dataSource = self;
     
-    CGRect rect = [UIScreen mainScreen].bounds;
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, rect.size.width, 56)];
-    searchBar.placeholder = @"输入关键字";
-    searchBar.delegate = self;
-    self.tableView.tableHeaderView = searchBar;
-    _searchBar = searchBar;
+    }
     
     //xy_close
     NSString *bundlePath = [[NSBundle mainBundle]pathForResource:@"XYCountryCode"ofType:@"bundle"];
@@ -82,7 +146,71 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)demoCheck:(UIButton*)sender{
+    XYCountry *c = _data[pickerSelectIndex];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(countryCodeViewController:chooseCode:)]) {
+        [self.delegate countryCodeViewController:self chooseCode:c.code];
+    }
+    if (_chooseCodeRespose) {
+        _chooseCodeRespose(c.code);
+    }
+    
+    [self dismiss];
+}
 #pragma mark set
+-(UIImage*)closeBTImage{
+    NSString *bundlePath = [[NSBundle mainBundle]pathForResource:@"XYCountryCode"ofType:@"bundle"];
+    
+    NSBundle *resourceBundle = [NSBundle bundleWithPath:bundlePath];
+    
+    NSString *path = [resourceBundle pathForResource:@"xy_close" ofType:@"png"];
+    
+    UIImage *leftImag = [UIImage imageWithContentsOfFile:path];
+    return leftImag;
+}
+-(UIView *)pickerBGView{
+    if (!_pickerBGView) {
+        
+        
+        
+        CGRect rect = [UIScreen mainScreen].bounds;
+        
+        _pickerBGImageView = [[UIImageView alloc] initWithFrame:rect];
+        _pickerBGImageView.backgroundColor = [UIColor blackColor];
+        _pickerBGImageView.alpha  =0.35;
+        [self.view addSubview:_pickerBGImageView];
+        
+        _pickerBGView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, rect.size.width, 260)];
+        UIView *topmenuView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, rect.size.width, 44)];
+        topmenuView.backgroundColor = [UIColor whiteColor];
+        [_pickerBGView addSubview:topmenuView];
+        
+        
+        _pickerBGCloseBT = [UIButton buttonWithType:UIButtonTypeCustom];
+        _pickerBGCloseBT.frame = CGRectMake(10, 2, 40, 40);
+        [_pickerBGCloseBT setImage:[self closeBTImage] forState:UIControlStateNormal];
+        [_pickerBGCloseBT addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+        [topmenuView addSubview:_pickerBGCloseBT];
+        
+        _pickerBGDemoBT = [UIButton buttonWithType:UIButtonTypeCustom];
+        _pickerBGDemoBT.frame = CGRectMake(rect.size.width - 10 - 40, 2, 40, 40);
+        [_pickerBGDemoBT setTitle:@"确定" forState:UIControlStateNormal];
+        [_pickerBGDemoBT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_pickerBGDemoBT addTarget:self action:@selector(demoCheck:) forControlEvents:UIControlEventTouchUpInside];
+        [topmenuView addSubview:_pickerBGDemoBT];
+        
+        self.pickerView.frame  = CGRectMake(0, 44, rect.size.width, _pickerBGView.bounds.size.height - topmenuView.frame.size.height);
+        [_pickerBGView addSubview:self.pickerView];
+    }
+    return _pickerBGView;
+}
+-(UIPickerView *)pickerView{
+    if (!_pickerView) {
+        _pickerView = [[UIPickerView alloc] initWithFrame:CGRectZero];
+        _pickerView.backgroundColor = [UIColor colorWithRed:239.0/255.0 green:239.0/255.0 blue:239.0/255.0 alpha:1.0];
+    }
+    return _pickerView;
+}
 -(UITableView *)tableView{
     if (!_tableView) {
         CGRect mainscreen = [UIScreen mainScreen].bounds;
@@ -184,6 +312,55 @@
     }
     
     [self dismiss];
+}
+#pragma mark UIPickerViewDataSource
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return _data.count;
+}
+-(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+    if(!view){
+        view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
+    }
+    
+    XYCountry *c  = _data[row];
+    UIImageView *imageView = [view viewWithTag:111];
+    if (!imageView) {
+        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 7, 50, 30)];
+        imageView.tag = 111;
+        [view addSubview:imageView];
+    }
+    UILabel *label = [view viewWithTag:112];
+    if (!label) {
+        label = [[UILabel alloc] initWithFrame:CGRectMake(90, 7, 150, 30)];
+        label.tag = 112;
+        label.textColor = [UIColor blackColor];
+        label.font = [UIFont systemFontOfSize:15.0];
+        [view addSubview:label];
+    }
+    
+    UILabel *sublabel = [view viewWithTag:113];
+    if (!sublabel) {
+        sublabel = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width-10-100, 7, 100, 30)];
+        sublabel.tag = 113;
+        sublabel.textColor = [UIColor grayColor];
+        sublabel.font = [UIFont systemFontOfSize:15.0];
+        sublabel.textAlignment = NSTextAlignmentRight;
+        [view addSubview:sublabel];
+    }
+    
+    imageView.image = c.image;
+    label.text = c.name;
+    sublabel.text = [NSString stringWithFormat:@"+ %@",c.code];
+    return view;
+}
+-(CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component{
+    return 44;
+}
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    pickerSelectIndex = row;
 }
 #pragma mark serachBarDeleagte
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
