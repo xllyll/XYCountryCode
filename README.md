@@ -6,11 +6,15 @@
 国家代码选择器，支持中英文、国旗
 
 
-1.导入XWCountryCode类
+1.导入XYCountryCode类
 
-pod
+##pod
+
+```objective-c
 
 pod 'XYCountryCode'
+
+```
 
 三行代码集成国家区号选择功能
 类型
