@@ -19,7 +19,7 @@
 
 typedef enum XYCountryCodeShowType {
     XYCountryCodeShowTypeNone  = 0,/*! 列表模式 */
-    XYCountryCodeShowTypePicker /*! picker模式 */
+    XYCountryCodeShowTypePicker = 1 /*! picker模式 */
 } XYCountryCodeShowType;
 
 @interface XYCountryCodeViewController : UIViewController

@@ -29,6 +29,15 @@
         self.label.text = code;
     }];
 }
+- (IBAction)show2:(id)sender {
+    
+    XYCountryCodeViewController *vc = [[XYCountryCodeViewController alloc] initWithShowType:XYCountryCodeShowTypeNone];
+    [vc showViewController:self];
+    [vc setChooseCodeRespose:^(NSString *code) {
+        self.label.text = code;
+    }];
+    
+}
 
 
 - (void)didReceiveMemoryWarning {

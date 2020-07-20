@@ -127,6 +127,9 @@
     NSBundle *resourceBundle = [NSBundle bundleWithPath:bundlePath];
     
     NSString *path = [resourceBundle pathForResource:@"xy_close" ofType:@"png"];
+    if (_type==XYCountryCodeShowTypeNone) {
+        path = [resourceBundle pathForResource:@"xy_close_ico2" ofType:@"png"];
+    }
 
     UIImage *leftImag = [UIImage imageWithContentsOfFile:path];
     

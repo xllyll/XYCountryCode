@@ -144,7 +144,6 @@ static XYCountryCodeUtils* _instance = nil;
         
         return [obj1.title compare:obj2.title];
         // 这里不仅可以利用字符串排序，也可以自定义HXPerson对象的排序方法compare:，自己接利用对象进行排序。
-        
     }];
     
     return resultArray;

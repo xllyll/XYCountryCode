@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,30 +20,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Fe-ae-ptX">
-                                <rect key="frame" x="46" y="121" width="283" height="48"/>
+                                <rect key="frame" x="46" y="101" width="283" height="48"/>
                                 <color key="backgroundColor" red="0.20392156859999999" green="0.72941176470000002" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="9Ac-z9-adL"/>
                                 </constraints>
-                                <state key="normal" title="show"/>
+                                <state key="normal" title="show(picker)"/>
                                 <connections>
                                     <action selector="show:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G8Y-g0-IvS"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="显示代码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKz-YW-PTP">
-                                <rect key="frame" x="153" y="70" width="69.5" height="21"/>
+                                <rect key="frame" x="153" y="50" width="69.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAa-ma-mqT">
+                                <rect key="frame" x="46" y="170" width="283" height="48"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="vo5-jV-qUM"/>
+                                </constraints>
+                                <state key="normal" title="show(controller)"/>
+                                <connections>
+                                    <action selector="show2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Mp-uM-V10"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="VKz-YW-PTP" firstAttribute="top" secondItem="Iei-PA-DLC" secondAttribute="bottom" constant="50" id="9G7-xx-Eyn"/>
                             <constraint firstItem="VKz-YW-PTP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9hM-mu-lwv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4Fe-ae-ptX" secondAttribute="trailing" constant="30" id="JDd-YA-2Kq"/>
+                            <constraint firstItem="VAa-ma-mqT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="Meb-CM-qUE"/>
                             <constraint firstItem="4Fe-ae-ptX" firstAttribute="top" secondItem="Iei-PA-DLC" secondAttribute="bottom" constant="101" id="Oxg-O9-j3K"/>
                             <constraint firstItem="4Fe-ae-ptX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="a6M-f2-fdJ"/>
+                            <constraint firstItem="VAa-ma-mqT" firstAttribute="top" secondItem="4Fe-ae-ptX" secondAttribute="bottom" constant="21" id="mcW-uh-huU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VAa-ma-mqT" secondAttribute="trailing" constant="30" id="yXR-Uj-XZi"/>
                         </constraints>
                     </view>
                     <connections>
@@ -56,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139.5" y="126.5"/>
+            <point key="canvasLocation" x="138.40000000000001" y="126.38680659670166"/>
         </scene>
     </scenes>
 </document>
