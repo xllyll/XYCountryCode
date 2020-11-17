@@ -36,9 +36,9 @@ XYCountryCodeViewController *vc = [[XYCountryCodeViewController alloc] initWithS
 
 ##-----------------------------------------
 
-![image](https://github.com/xllyll/XYCountryCode/blob/master/gif01.gif?raw=true)
-![image](https://github.com/xllyll/XYCountryCode/blob/master/image2.png?raw=true)
-![image](https://github.com/xllyll/XYCountryCode/blob/master/image3.png?raw=true)
-![image](https://github.com/xllyll/XYCountryCode/blob/master/image4.png?raw=true)
+![image](https://github.com/xllyll/XYCountryCode/blob/master/image/gif01.gif?raw=true)
+![image](https://github.com/xllyll/XYCountryCode/blob/master/image/image2.png?raw=true)
+![image](https://github.com/xllyll/XYCountryCode/blob/master/image/image3.png?raw=true)
+![image](https://github.com/xllyll/XYCountryCode/blob/master/image/image4.png?raw=true)
 
 ------------------by xllyll----------------
