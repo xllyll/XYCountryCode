@@ -8,6 +8,7 @@
 
 #import "XYCountryCodeViewController.h"
 #import "XYCountryCodeUtils.h"
+#import "XYColor+UIColor.h"
 
 @interface XYCountryCodeViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
 {
@@ -27,6 +28,7 @@
 @property (strong , nonatomic)UIView *pickerBGView;
 @property (strong , nonatomic)UIImageView *pickerBGImageView;
 @property (strong , nonatomic)UIButton *pickerBGCloseBT;
+@property (strong , nonatomic)UILabel *pickerTitleLabel;
 @property (strong , nonatomic)UIButton *pickerBGDemoBT;
 
 @end
@@ -37,6 +39,10 @@
     self = [super init];
     if (self) {
         self.type = aType;
+        if(self.textHighlightColor==nil){
+            //默认颜色
+            self.textHighlightColor = [UIColor colorWithRed:64.0/255.0 green:181.0/255.0 blue:132.0/255.0 alpha:1.0];
+        }
     }
     return self;
 }
@@ -107,7 +113,7 @@
         [self.view addSubview:self.tableView];
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
-        
+        self.tableView.tableFooterView = [[UIView alloc] init];
         CGRect rect = [UIScreen mainScreen].bounds;
         UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, rect.size.width, 56)];
         searchBar.placeholder = @"输入关键字";
@@ -174,7 +180,7 @@
 -(UIView *)pickerBGView{
     if (!_pickerBGView) {
         
-        
+       
         
         CGRect rect = [UIScreen mainScreen].bounds;
         
@@ -185,7 +191,12 @@
         
         _pickerBGView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, rect.size.width, 260)];
         UIView *topmenuView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, rect.size.width, 44)];
-        topmenuView.backgroundColor = [UIColor whiteColor];
+        if (@available(iOS 13.0, *)) {
+            topmenuView.backgroundColor = [UIColor systemBackgroundColor];
+        } else {
+            // Fallback on earlier versions
+            topmenuView.backgroundColor = [UIColor whiteColor];
+        }
         [_pickerBGView addSubview:topmenuView];
         
         
@@ -195,14 +206,33 @@
         [_pickerBGCloseBT addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
         [topmenuView addSubview:_pickerBGCloseBT];
         
+        _pickerTitleLabel = [[UILabel alloc] init];
+        _pickerTitleLabel.text = self.title;
+        [topmenuView addSubview:_pickerTitleLabel];
+        [_pickerTitleLabel sizeToFit];
+        _pickerTitleLabel.center = topmenuView.center;
+        
         _pickerBGDemoBT = [UIButton buttonWithType:UIButtonTypeCustom];
         _pickerBGDemoBT.frame = CGRectMake(rect.size.width - 10 - 40, 2, 40, 40);
         [_pickerBGDemoBT setTitle:@"确定" forState:UIControlStateNormal];
-        [_pickerBGDemoBT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        if (@available(iOS 13.0, *)) {
+            [_pickerBGDemoBT setTitleColor:[UIColor systemGrayColor] forState:UIControlStateNormal];
+        } else {
+            // Fallback on earlier versions
+            [_pickerBGDemoBT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        }
+        
         [_pickerBGDemoBT addTarget:self action:@selector(demoCheck:) forControlEvents:UIControlEventTouchUpInside];
         [topmenuView addSubview:_pickerBGDemoBT];
         
         self.pickerView.frame  = CGRectMake(0, 44, rect.size.width, _pickerBGView.bounds.size.height - topmenuView.frame.size.height);
+        self.pickerView.backgroundColor = [UIColor clearColor];
+        if (@available(iOS 13.0, *)) {
+            self.pickerView.backgroundColor = [UIColor systemBackgroundColor];
+        } else {
+            // Fallback on earlier versions
+            self.pickerView.backgroundColor = [UIColor whiteColor];
+        }
         [_pickerBGView addSubview:self.pickerView];
     }
     return _pickerBGView;
@@ -274,8 +304,8 @@
         [attribute1 addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20] range:range1];
         [attribute2 addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20] range:range2];
         // 关键字高亮
-        [attribute1 addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:range1];
-        [attribute2 addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:range2];
+        [attribute1 addAttribute:NSForegroundColorAttributeName value:self.textHighlightColor range:range1];
+        [attribute2 addAttribute:NSForegroundColorAttributeName value:self.textHighlightColor range:range2];
         
         // 将带属性的字符串添加到cell.textLabel上.
         [cell.textLabel setAttributedText:attribute1];
@@ -339,7 +369,7 @@
     if (!label) {
         label = [[UILabel alloc] initWithFrame:CGRectMake(90, 7, 150, 30)];
         label.tag = 112;
-        label.textColor = [UIColor blackColor];
+        label.textColor = [UIColor xy_textColor];
         label.font = [UIFont systemFontOfSize:15.0];
         [view addSubview:label];
     }
@@ -348,7 +378,7 @@
     if (!sublabel) {
         sublabel = [[UILabel alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width-10-100, 7, 100, 30)];
         sublabel.tag = 113;
-        sublabel.textColor = [UIColor grayColor];
+        sublabel.textColor = [UIColor xy_textSubColor];
         sublabel.font = [UIFont systemFontOfSize:15.0];
         sublabel.textAlignment = NSTextAlignmentRight;
         [view addSubview:sublabel];

@@ -24,6 +24,7 @@
 }
 - (IBAction)show:(id)sender {
     XYCountryCodeViewController *vc = [[XYCountryCodeViewController alloc] initWithShowType:XYCountryCodeShowTypePicker];
+    vc.title = @"国家选择";
     [vc showViewController:self];
     [vc setChooseCodeRespose:^(NSString *code) {
         self.label.text = code;
@@ -32,6 +33,8 @@
 - (IBAction)show2:(id)sender {
     
     XYCountryCodeViewController *vc = [[XYCountryCodeViewController alloc] initWithShowType:XYCountryCodeShowTypeNone];
+    vc.textHighlightColor = [UIColor colorWithRed:25.0/255.0 green:159.0/255.0 blue:245.0/255.0 alpha:1.0];
+    vc.title = @"国家选择";
     [vc showViewController:self];
     [vc setChooseCodeRespose:^(NSString *code) {
         self.label.text = code;

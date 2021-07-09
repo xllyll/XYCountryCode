@@ -21,6 +21,8 @@
 		17FA7CCE21256A8C00B60216 /* XYCountryCodeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FA7CCD21256A8C00B60216 /* XYCountryCodeUtils.m */; };
 		17FA7CD121256A9F00B60216 /* XYCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FA7CD021256A9F00B60216 /* XYCountry.m */; };
 		17FA7CD42125722500B60216 /* XYCountryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FA7CD32125722500B60216 /* XYCountryManager.m */; };
+		406E57E22697ECAB00D4B778 /* XYColor+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 406E57E12697ECAB00D4B778 /* XYColor+UIColor.m */; };
+		406E57E42697EDA000D4B778 /* XYColor.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 406E57E32697EDA000D4B778 /* XYColor.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,9 @@
 		17FA7CD021256A9F00B60216 /* XYCountry.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYCountry.m; sourceTree = "<group>"; };
 		17FA7CD22125722500B60216 /* XYCountryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYCountryManager.h; sourceTree = "<group>"; };
 		17FA7CD32125722500B60216 /* XYCountryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYCountryManager.m; sourceTree = "<group>"; };
+		406E57E02697ECAB00D4B778 /* XYColor+UIColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XYColor+UIColor.h"; sourceTree = "<group>"; };
+		406E57E12697ECAB00D4B778 /* XYColor+UIColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XYColor+UIColor.m"; sourceTree = "<group>"; };
+		406E57E32697EDA000D4B778 /* XYColor.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = XYColor.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +167,8 @@
 				17FA7CD021256A9F00B60216 /* XYCountry.m */,
 				17FA7CD22125722500B60216 /* XYCountryManager.h */,
 				17FA7CD32125722500B60216 /* XYCountryManager.m */,
+				406E57E02697ECAB00D4B778 /* XYColor+UIColor.h */,
+				406E57E12697ECAB00D4B778 /* XYColor+UIColor.m */,
 			);
 			path = XYCountryCode;
 			sourceTree = "<group>";
@@ -169,6 +176,7 @@
 		1756FDA8212564B60020130B /* res */ = {
 			isa = PBXGroup;
 			children = (
+				406E57E32697EDA000D4B778 /* XYColor.xcassets */,
 				1756FDA9212564C30020130B /* XYCountryCode.bundle */,
 			);
 			path = res;
@@ -278,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1756FD82212564850020130B /* LaunchScreen.storyboard in Resources */,
+				406E57E42697EDA000D4B778 /* XYColor.xcassets in Resources */,
 				1756FD7F212564850020130B /* Assets.xcassets in Resources */,
 				1756FDAA212564C40020130B /* XYCountryCode.bundle in Resources */,
 				1756FD7A212564830020130B /* Main.storyboard in Resources */,
@@ -310,6 +319,7 @@
 				17FA7CD121256A9F00B60216 /* XYCountry.m in Sources */,
 				17FA7CCE21256A8C00B60216 /* XYCountryCodeUtils.m in Sources */,
 				1756FD85212564850020130B /* main.m in Sources */,
+				406E57E22697ECAB00D4B778 /* XYColor+UIColor.m in Sources */,
 				17FA7CD42125722500B60216 /* XYCountryManager.m in Sources */,
 				1756FD74212564830020130B /* AppDelegate.m in Sources */,
 				1756FDAD2125650A0020130B /* XYCountryCodeViewController.m in Sources */,

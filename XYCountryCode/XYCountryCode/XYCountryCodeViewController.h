@@ -18,15 +18,21 @@
 @end
 
 typedef enum XYCountryCodeShowType {
-    XYCountryCodeShowTypeNone  = 0,/*! 列表模式 */
+    XYCountryCodeShowTypeNone  = 0, /*! 列表模式 */
     XYCountryCodeShowTypePicker = 1 /*! picker模式 */
 } XYCountryCodeShowType;
 
 @interface XYCountryCodeViewController : UIViewController
 
 -(instancetype)initWithShowType:(XYCountryCodeShowType)aType;
-
+/**
+ 显示类型
+ */
 @property (assign ,nonatomic)XYCountryCodeShowType type;
+/**
+ 搜索匹配文字高亮颜色
+ */
+@property (strong ,nonatomic)UIColor *textHighlightColor;
 
 -(void)showViewController:(UIViewController *)vc;
 
