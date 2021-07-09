@@ -35,9 +35,10 @@ XYCountryCodeViewController *vc = [[XYCountryCodeViewController alloc] initWithS
     self.label.text = code;
 }];
 ```
-##----------------- 更新 -------------------
+# ----------------- 更新 -------------------
 暗黑模式 适配
-##-----------------------------------------
+
+# -----------------------------------------
 
 ![image](https://github.com/xllyll/XYCountryCode/blob/master/image/gif01.gif?raw=true)
 ![image](https://github.com/xllyll/XYCountryCode/blob/master/image/image2.png?raw=true)
