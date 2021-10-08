@@ -29,6 +29,15 @@ typedef enum XYCountryCodeShowType {
  显示类型
  */
 @property (assign ,nonatomic)XYCountryCodeShowType type;
+
+/**
+ 图片圆角 默认5
+ */
+@property (assign ,nonatomic)CGFloat cornerRadius;
+/**
+ 按钮颜色
+ */
+@property (strong ,nonatomic)UIColor *tintColor;
 /**
  搜索匹配文字高亮颜色
  */

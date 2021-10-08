@@ -39,6 +39,8 @@
     self = [super init];
     if (self) {
         self.type = aType;
+        self.tintColor = UIColor.blackColor;
+        self.cornerRadius = 5;
         if(self.textHighlightColor==nil){
             //默认颜色
             self.textHighlightColor = [UIColor colorWithRed:64.0/255.0 green:181.0/255.0 blue:132.0/255.0 alpha:1.0];
@@ -58,6 +60,7 @@
         }];
     }else{
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:self];
+        nav.modalPresentationStyle = 0;
         [vc presentViewController:nav animated:YES completion:^{
             
         }];
@@ -120,6 +123,8 @@
         searchBar.delegate = self;
         self.tableView.tableHeaderView = searchBar;
         _searchBar = searchBar;
+        
+        
     }else if (_type == XYCountryCodeShowTypePicker){
         [self.view addSubview:self.pickerBGView];
         self.pickerView.delegate = self;
@@ -134,7 +139,7 @@
     
     NSString *path = [resourceBundle pathForResource:@"xy_close" ofType:@"png"];
     if (_type==XYCountryCodeShowTypeNone) {
-        path = [resourceBundle pathForResource:@"xy_close_ico2" ofType:@"png"];
+        path = [resourceBundle pathForResource:@"xy_close" ofType:@"png"];
     }
 
     UIImage *leftImag = [UIImage imageWithContentsOfFile:path];
@@ -144,6 +149,8 @@
     
     UIBarButtonItem *rightBarButtonItem  =  [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButtonItemSelect:)];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    
+    self.navigationController.navigationBar.tintColor = self.tintColor;
 }
 - (void)leftBarButtonItemSelect:(UIBarButtonItem*)sender{
     [self dismiss];
@@ -280,16 +287,17 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
+        
+        cell.imageView.layer.cornerRadius = self.cornerRadius;
+        cell.imageView.layer.masksToBounds = YES;
     }
-    XYCountryManager *m ;
-    
+    XYCountryManager *m;
     if (self.searchBar.text.length==0) {
         m = self.dataArray[indexPath.section];
     }else{
         m = self.searchArray[indexPath.section];
     }
     XYCountry *c = m.countrys[indexPath.row];
-    
     if (_searchBar.text.length>0) {
         // 原始搜索结果字符串.
         NSString *originResult1 = c.name;
@@ -313,7 +321,6 @@
     }
     cell.textLabel.text = c.name;
     cell.detailTextLabel.text = [@"+ " stringByAppendingString:c.code];
-    
     cell.imageView.image = c.image;
     return cell;
 }
@@ -363,6 +370,8 @@
     if (!imageView) {
         imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 7, 50, 30)];
         imageView.tag = 111;
+        imageView.layer.cornerRadius = self.cornerRadius;
+        imageView.layer.masksToBounds = YES;
         [view addSubview:imageView];
     }
     UILabel *label = [view viewWithTag:112];
