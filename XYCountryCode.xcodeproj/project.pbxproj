@@ -493,8 +493,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = PS3YZT8DSP;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = PNRHSR9FPD;
 				INFOPLIST_FILE = XYCountryCode/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -504,6 +505,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "21b49d58-99cd-4a14-b25e-9c443a5272b9";
 				PROVISIONING_PROFILE_SPECIFIER = "XC-DEV";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = XC_DEV;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -516,7 +518,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = PS3YZT8DSP;
 				INFOPLIST_FILE = XYCountryCode/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
