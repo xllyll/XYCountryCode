@@ -18,6 +18,7 @@
         return [UIColor blackColor];
     }
 }
+
 +(UIColor *)xy_textSubColor{
     if (@available(iOS 11.0, *)) {
         return [UIColor colorNamed:@"xy_sub_text_color"];

@@ -137,9 +137,9 @@
     
     NSBundle *resourceBundle = [NSBundle bundleWithPath:bundlePath];
     
-    NSString *path = [resourceBundle pathForResource:@"xy_close" ofType:@"png"];
+    NSString *path = [resourceBundle pathForResource:@"ic_close" ofType:@"png"];
     if (_type==XYCountryCodeShowTypeNone) {
-        path = [resourceBundle pathForResource:@"xy_close" ofType:@"png"];
+        path = [resourceBundle pathForResource:@"ic_close" ofType:@"png"];
     }
 
     UIImage *leftImag = [UIImage imageWithContentsOfFile:path];
@@ -179,7 +179,7 @@
     
     NSBundle *resourceBundle = [NSBundle bundleWithPath:bundlePath];
     
-    NSString *path = [resourceBundle pathForResource:@"xy_close" ofType:@"png"];
+    NSString *path = [resourceBundle pathForResource:@"ic_close" ofType:@"png"];
     
     UIImage *leftImag = [UIImage imageWithContentsOfFile:path];
     return leftImag;

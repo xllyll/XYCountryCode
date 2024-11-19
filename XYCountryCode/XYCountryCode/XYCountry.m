@@ -7,9 +7,13 @@
 //
 
 #import "XYCountry.h"
+
 @interface XYCountry ()
+
 @property (strong , nonatomic)NSDictionary *info;
+
 @end
+
 @implementation XYCountry
 
 -(instancetype)initWithDictionary:(NSDictionary *)aInfo{
